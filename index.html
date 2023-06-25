@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Meteorite Strikes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="js/main.js"></script> 
+        <script type="text/javascript" src="js/markers.js"></script> 
+        <script type="text/javascript" src="js/download.js"></script> 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBgU85dCVNqHf0KCgzX1lhGTdpgG6uuEs&callback=initMap&v=weekly" defer></script> 
+    </head>
+    <body onload="getData(meteorite_landings_url, print);">
+        <div class="container">
+            <div id="map"></div>
+            <div id="filter">
+                <div id="selectors">
+                    <div class="title">Search</div>
+                    <div class="filter-inputs">
+                        <div class="year-min">
+                            <div class="title-min">Min Year</div>
+                            <div class="input-min">
+                                <input type="text" id="minYear">
+                            </div>
+                        </div>
+                        <div class="year-max">
+                            <div class="title-max">Min Year</div>
+                            <div class="input-max">
+                                <input type="text" id="maxYear">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-btns">
+                        <button class="filter-btn" id="search-btn" onclick="getData(meteorite_landings_url, print);">Search</button>
+                        <button class="filter-btn" id="download-btn" onclick="download();">Download</button>
+                    </div>
+                </div>
+                <div id="tablehead">
+                    <div class="title">Result</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Year</th>
+                                <th>Class</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="tablebody_container">
+                    <table>
+                        <tbody id="tablebody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
